@@ -66,20 +66,20 @@ android {
         }
     }
 
-    signingConfigs {
-        release {
-            keyAlias keyProps['keyAlias']
-            keyPassword keyProps['keyPassword']
-            storeFile keyProps['storeFile'] ? file(keyProps['storeFile']) : null
-            storePassword keyProps['storePassword']
-        }
-        debug {
-            keyAlias keyProps['keyAlias']
-            keyPassword keyProps['keyPassword']
-            storeFile keyProps['storeFile'] ? file(keyProps['storeFile']) : null
-            storePassword keyProps['storePassword']
-        }
-    }
+//    signingConfigs {
+//        release {
+//            keyAlias keyProps['keyAlias']
+//            keyPassword keyProps['keyPassword']
+//            storeFile keyProps['storeFile'] ? file(keyProps['storeFile']) : null
+//            storePassword keyProps['storePassword']
+//        }
+//        debug {
+//            keyAlias keyProps['keyAlias']
+//            keyPassword keyProps['keyPassword']
+//            storeFile keyProps['storeFile'] ? file(keyProps['storeFile']) : null
+//            storePassword keyProps['storePassword']
+//        }
+//    }
 
     buildTypes {
         release {
@@ -92,24 +92,24 @@ android {
             minifyEnabled true
             // 混淆配置
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            if (isNeedPackage.toBoolean()) {
-                signingConfig signingConfigs.release
-                if (file('local.properties').exists()) {
-                    Properties properties = new Properties()
-                    properties.load(project.rootProject.file('local.properties').newDataInputStream())
-                    def appID = properties.getProperty("APP_ID_UMENG")
-                    if (appID != null) {
-                        buildConfigField "String", "APP_ID_UMENG", appID
-                    } else {
-                        buildConfigField "String", "APP_ID_UMENG", '"60254fc7425ec25f10f4293e"'
-                    }
-                } else {
-                    buildConfigField "String", "APP_ID_UMENG", '"60254fc7425ec25f10f4293e"'
-                }
-            } else {
-                signingConfig signingConfigs.debug
-                buildConfigField "String", "APP_ID_UMENG", '"60254fc7425ec25f10f4293e"'
-            }
+//            if (isNeedPackage.toBoolean()) {
+//                signingConfig signingConfigs.release
+//                if (file('local.properties').exists()) {
+//                    Properties properties = new Properties()
+//                    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//                    def appID = properties.getProperty("APP_ID_UMENG")
+//                    if (appID != null) {
+//                        buildConfigField "String", "APP_ID_UMENG", appID
+//                    } else {
+//                        buildConfigField "String", "APP_ID_UMENG", '"60254fc7425ec25f10f4293e"'
+//                    }
+//                } else {
+//                    buildConfigField "String", "APP_ID_UMENG", '"60254fc7425ec25f10f4293e"'
+//                }
+//            } else {
+//                signingConfig signingConfigs.debug
+//                buildConfigField "String", "APP_ID_UMENG", '"60254fc7425ec25f10f4293e"'
+//            }
         }
         debug {
             // 调试模式开关
@@ -121,24 +121,24 @@ android {
             minifyEnabled true
             // 混淆配置
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            if (isNeedPackage.toBoolean()) {
-                signingConfig signingConfigs.release
-                if (file('local.properties').exists()) {
-                    Properties properties = new Properties()
-                    properties.load(project.rootProject.file('local.properties').newDataInputStream())
-                    def appID = properties.getProperty("APP_ID_UMENG")
-                    if (appID != null) {
-                        buildConfigField "String", "APP_ID_UMENG", appID
-                    } else {
-                        buildConfigField "String", "APP_ID_UMENG", '"60254fc7425ec25f10f4293e"'
-                    }
-                } else {
-                    buildConfigField "String", "APP_ID_UMENG", '"60254fc7425ec25f10f4293e"'
-                }
-            } else {
-                signingConfig signingConfigs.debug
-                buildConfigField "String", "APP_ID_UMENG", '"60254fc7425ec25f10f4293e"'
-            }
+//            if (isNeedPackage.toBoolean()) {
+//                signingConfig signingConfigs.release
+//                if (file('local.properties').exists()) {
+//                    Properties properties = new Properties()
+//                    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//                    def appID = properties.getProperty("APP_ID_UMENG")
+//                    if (appID != null) {
+//                        buildConfigField "String", "APP_ID_UMENG", appID
+//                    } else {
+//                        buildConfigField "String", "APP_ID_UMENG", '"60254fc7425ec25f10f4293e"'
+//                    }
+//                } else {
+//                    buildConfigField "String", "APP_ID_UMENG", '"60254fc7425ec25f10f4293e"'
+//                }
+//            } else {
+//                signingConfig signingConfigs.debug
+//                buildConfigField "String", "APP_ID_UMENG", '"60254fc7425ec25f10f4293e"'
+//            }
         }
     }
 
